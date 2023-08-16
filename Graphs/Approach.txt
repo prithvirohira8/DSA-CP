@@ -1,0 +1,6 @@
+In grapbh questions always make sure the for 'n' nodes/ vertices,
+in a question the nodes/ vertices should be of the form 0 to n-1.
+If they are not then they should be transformed and brought to this form.
+There should be a adjacency list/matric denoting the cost of the edges.
+In the case of weighted graphs the costs can be anything, cost of 0 indicates that
+there is no connection between those 2 vertices
