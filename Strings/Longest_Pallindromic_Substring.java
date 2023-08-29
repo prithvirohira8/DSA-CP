@@ -32,6 +32,7 @@ class Solution {
         if(s.length() == 0) return "";
         
         int res_l = 0, res_r = 1, maxLen = 1, l = 0, r = 0;
+        // checking for odd length pallindromes
         for(int i = 0; i < s.length(); i++){
             l = i;
             r = i;
@@ -47,6 +48,7 @@ class Solution {
 
             l = i - 1;
             r = i;
+            // checking for even length pallindromes
             while(l >= 0 && r < s.length() && s.charAt(l) == s.charAt(r)){
                 if(r - l + 1 > maxLen){
                     res_l = l;
