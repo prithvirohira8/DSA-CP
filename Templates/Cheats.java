@@ -62,6 +62,8 @@ class Main{
 // char c = (char) (i + '0');
 // (c = '1')
 
+// Convert char to string
+// String s = Character.toString('a')
 // Convert int to long
 // Long l = Long.valueOf(n);
 
@@ -185,7 +187,7 @@ class Main{
 //   System.out.println(itr.next());	
 //}
 
-// ii) HashMap()
+// ii) r()
 // To declare HashMap<Integer,String> hm = new HashMap<Integer,String>();
 
 // To add an element on the HashMap()
