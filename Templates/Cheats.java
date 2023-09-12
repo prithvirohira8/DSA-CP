@@ -240,6 +240,14 @@ class Main{
 // that the application stack is exhausted and is usually caused by 
 // deep or infinite recursion.
 
+// lang.NullPointerException is a runtime error which occurs when the pointer is pointing to
+// something (a variable) which has not yet been defined that is, it is undeined or null
+
+// some blah blah memory space exhausted error
+// it occurs when you keep on adding elements in a list or another data structure.
+// data structure have fixed limits on their sizes.
+// The size of array or lists is somwhere near 10^5
+
 // the max size of an array in java is 2^32 i.e 2,147,483,647 elements
 // array's are pre-initialized by 0's in java
 
@@ -258,3 +266,22 @@ class Main{
 // for (int[] row : ar)
 //             Arrays.fill(row, 10);
 // Output: [[10, 10, 10, 10], [10, 10, 10, 10], [10, 10, 10, 10]]
+
+// Sorting
+
+// Lists /  ArrayLists
+
+// Sorting in ascending order
+// Collections.sort(lst);
+
+// Sorting in descending order
+// Collections.sort(lst, Collections.reverseOrder())
+
+// Arrays
+
+// Sorting in ascending order
+// Arrays.sort(nums);
+
+// Sorting in descending order
+// Arrays.sort(nums, Collection.reverseOrder())
+

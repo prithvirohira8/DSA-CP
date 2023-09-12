@@ -1,0 +1,65 @@
+A Heap is a special Tree-based data structure 
+in which the tree is a complete binary tree.
+
+Operations of Heap Data Structure:
+
+Heapify: a process of creating a heap from an array.
+Insertion: process to insert an element in existing heap time complexity O(log N).
+Deletion: deleting the top element of the heap or the highest priority element,
+and then organizing the heap and returning the element with time complexity O(log N).
+Peek: to check or find the first (or can say the top) element of the heap.
+
+Generally, Heaps can be of two types:
+Min Heap
+Max Heap
+
+Min-Heap: 
+In a Min-Heap the key present at the root node must be minimum among the keys present at all of it’s children. 
+The same property must be recursively true for all sub-trees in that Binary Tree.
+
+Min Heap Operations:
+getMin() - returns the root of the heap in O(1) (root is the least value elemeny in the heap)
+insert() - inserting an element into a heap in O(Log n) time. if the element is not at the end,
+then traversals need to be done and the heap(binary tree) needs to be re structures. (best case is O(1))
+
+Min Heap Implementation
+The priotity queue is normally used to implement the heap. For min heap we just need to normally initialize the priority
+queue, it will behave like a min Heap.
+
+// Initialization
+PriorityQueue<Integer> minHeap = new PriorityQueue<Integer>();
+
+// Adding elements in a heap (Time Complexity: O(log n))
+minHeap.add(element);
+
+// Removing the root node / head (Time Complexity: O(1))
+minHeap.poll();
+
+// Removing a specific element from the heap (Time Complexity: O(log n))
+minHeap.remove(element);
+
+// Peeking (TC: O(1))
+minHeap.peek()
+
+Max-Heap: 
+In a Max-Heap the key present at the root node must be greatest among the keys present at all of it’s children. 
+The same property must be recursively true for all sub-trees in that Binary Tree.
+
+Max Heap Implementation
+The priority queue is used here too. For max heap we just need to initialize the priority queue with the setting of
+Collections.reverseOrder()
+
+// Initialization
+PriorityQueue<Integer> maxHeap = new PriorityQueue<Integer>(Collections.reverseOrder());
+
+// Adding elements in the maxHeap
+maxHeap.add(element) (Time Complexity: O(log n))
+
+// Removing the root node / head (Time Complexity: O(1))
+maxHeap.poll()
+
+// Removing a specific element from the heap
+maxHeap.remove(element); (Time Complexity: O(log n))
+
+// Peeking (TC: O(1))
+minHeap.peek()
