@@ -1,0 +1,34 @@
+// Problem: Nth Root of M
+// Problem Link: https://www.naukri.com/code360/problems/1062679?topList=striver-sde-sheet-problems&utm_source=striver&utm_medium=website&leftPanelTabValue=PROBLEM
+
+import java.util.*;
+
+public class Solution {
+    static long pow_func(long mid, int n, long m) {
+        long result = 1;
+        for (int i = 1; i <= n; i++) {
+            result *= mid;
+            if (result > m) return result; // Early exit to avoid unnecessary calculations
+        }
+        return result;
+    }
+
+    public static int NthRoot(int n, int m) {
+        if (n == 1) return m; // Handle the case where n = 1
+        
+        long left = 1, right = m;
+        while (left <= right) {
+            long mid = left + (right - left) / 2;
+            long value = pow_func(mid, n, m);
+            
+            if (value == m) return (int)mid;
+            else if (value < m) left = mid + 1;
+            else right = mid - 1;
+        }
+        
+        return -1;
+    }
+}
+
+// Time Complexity: O(n * log(m))
+// log m because of searching the mid element using binary search, n is the time complexity of the pow function.

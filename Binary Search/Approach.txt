@@ -1,0 +1,19 @@
+Binary Search
+- Algorithm to find an element in O(log(n)) time complexity for a sorted array.
+- It basically reduces the search space by creating 2 halves in every iteration
+
+When do we use binary search to solve sums?
+Case 1: 
+We have a sorted array and need the index of an element for further processing.
+We can search for the index in O(log(n)).
+
+Case 2:
+We can use the idea of binary search, that is create 2 halves for reducing the search space
+and modify the logic of creating the 2 halves as to satisfy the constraints of the question.
+Example: Search_Element_in_a_rotated_array.java, Single_ELement_in_a_sorted_Array.java
+
+
+Case 3 (more in problems):
+We need to find a value taken by a certain function that satisfies its constraints.
+We know that the value lies in the certain range and the value is proportional to the output of the function.
+We can use binary search on the range to find the value satidfying our constraints.

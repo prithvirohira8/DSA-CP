@@ -1,0 +1,7 @@
+Dynamic Programming
+
+When to use
+- When we need optimization
+- When we need to solve a problem in a sequence of decisions:
+  (Whether to include or not)
+- When we need to try all possible solutions and pick up the best one
