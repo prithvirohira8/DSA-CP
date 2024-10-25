@@ -17,3 +17,4 @@ Case 3 (more in problems):
 We need to find a value taken by a certain function that satisfies its constraints.
 We know that the value lies in the certain range and the value is proportional to the output of the function.
 We can use binary search on the range to find the value satidfying our constraints.
+Example: Allocate_Books
