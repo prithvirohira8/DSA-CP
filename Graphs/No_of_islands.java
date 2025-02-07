@@ -13,36 +13,44 @@
 // visited in the start.
 // Once again the no of times the DFS is required to be done, is the
 // no of graphs in the disconnected 2d array, which is the no if islands.
+import java.util.*;
 
-class Solution {
-    static void DFS(char[][] grid, boolean[][] visited, int row, int col){
+class Solution4 {
+    static void DFS(char[][] grid, boolean[][] visited, int row, int col) {
         Stack<Node> stk = new Stack();
         stk.push(new Node(row, col));
 
-        while(!stk.isEmpty()){
+        while (!stk.isEmpty()) {
             Node node = stk.pop();
             row = node.row;
             col = node.col;
             visited[row][col] = true;
-            if(row != 0 && !visited[row - 1][col]) stk.push(new Node(row - 1, col));
-            if(row != grid.length - 1 && !visited[row + 1][col]) stk.push(new Node(row + 1, col));
-            if(col != 0 && !visited[row][col - 1]) stk.push(new Node(row, col - 1));
-            if(col != grid[0].length - 1 && !visited[row][col + 1]) stk.push(new Node(row, col + 1));
+            if (row != 0 && !visited[row - 1][col])
+                stk.push(new Node(row - 1, col));
+            if (row != grid.length - 1 && !visited[row + 1][col])
+                stk.push(new Node(row + 1, col));
+            if (col != 0 && !visited[row][col - 1])
+                stk.push(new Node(row, col - 1));
+            if (col != grid[0].length - 1 && !visited[row][col + 1])
+                stk.push(new Node(row, col + 1));
         }
     }
+
     public int numIslands(char[][] grid) {
-        if(grid.length == 0) return 0;
+        if (grid.length == 0)
+            return 0;
         boolean[][] visited = new boolean[grid.length][grid[0].length];
-        
-        for(int i = 0; i < grid.length; i++){
-            for(int j = 0; j < grid[0].length; j++){
-                if(grid[i][j] == '0') visited[i][j] = true;
+
+        for (int i = 0; i < grid.length; i++) {
+            for (int j = 0; j < grid[0].length; j++) {
+                if (grid[i][j] == '0')
+                    visited[i][j] = true;
             }
         }
         int count = 0;
-        for(int i = 0; i < grid.length; i++){
-            for(int j = 0; j < grid[0].length; j++){
-                if(!visited[i][j]){
+        for (int i = 0; i < grid.length; i++) {
+            for (int j = 0; j < grid[0].length; j++) {
+                if (!visited[i][j]) {
                     count++;
                     DFS(grid, visited, i, j);
                 }
@@ -52,10 +60,11 @@ class Solution {
     }
 }
 
-class Node{
+class Node {
     int row;
     int col;
-    Node(int row, int col){
+
+    Node(int row, int col) {
         this.row = row;
         this.col = col;
     }
