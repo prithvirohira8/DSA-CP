@@ -1,0 +1,13 @@
+What is a trie?
+A trie is a data structure that is used to optimize the search of characters or words.
+It consists of nodes  that can have one two or more children.
+It is used by search engines suggesting words for completion of the text.
+
+Data Structure:
+
+class Node{
+    HashMap<Character, Node> Children;
+    boolean isWord
+}
+
+The boolean is word is necessary to show if the sequence of Nodes consisting character is a valid word or no

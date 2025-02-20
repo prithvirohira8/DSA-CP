@@ -33,7 +33,7 @@ class Node {
     }
 };
 
-class Solution {
+class Solution10 {
     public Node connect(Node root) {
         if (root == null)
             return root;

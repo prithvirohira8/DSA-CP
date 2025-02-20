@@ -7,8 +7,9 @@
 
 // Where does the algorithm actually optimize?
 // lets say we have a string s = "aaaab"
-// and a pattern "aab", and we need to check if the pattern is present in a string.
-// in the normal way of using 2 pointers when we would reach the 2nd index (o based indexing) 
+// and a pattern "aab", 
+// and we need to check if the pattern is present in a string.
+// in the normal way of using 2 pointers when we would reach the 2nd index (0 based indexing) 
 // of the pattern and notice a mismatch with the 2nd index of s, we would move the pointer in
 // the pattern, back to the 0th index of the string, and starth the comparison again from the 2nd index of s
 // with the 0th index of the pattern.
@@ -20,47 +21,46 @@
 // First we create a lps array (longest prefix suffix) array, that notes the indices of repetition,
 // for a possible trace back during a mismatch
 
-
 // Reference Video: https://youtu.be/V5-7GzOfADQ?feature=shared
 
 class HelloWorld {
     public static void main(String[] args) {
         String s = "ababcabcabababd";
         String pattern = "ababd";
-        
+
         int[] lps = new int[pattern.length()];
         int i = 0, j = 1, x = 0;
-        while(j < pattern.length()){
-            if(pattern.charAt(i) == pattern.charAt(j)){
+        while (j < pattern.length()) {
+            if (pattern.charAt(i) == pattern.charAt(j)) {
                 i++;
                 x++;
                 lps[j] = x;
-            }
-            else{
+            } else {
                 x = 0;
                 i = 0;
             }
             j++;
         }
-        
+        // lps[] = [0, 0, 1, 2, 0]
         i = 0;
         j = 0;
-        while(i < s.length() && j < pattern.length()){
-            if(s.charAt(i) == pattern.charAt(j)){
+        while (i < s.length() && j < pattern.length()) {
+            if (s.charAt(i) == pattern.charAt(j)) {
                 j++;
                 i++;
                 continue;
-            }
-            else {
-                if(j != 0){
+            } else {
+                if (j != 0) {
                     j = lps[j - 1];
                     continue;
-                } 
-                else i++;
+                } else
+                    i++;
             }
         }
-        if(j == pattern.length()) System.out.println("Pattern Match found");
-        else System.out.println("Pattern Match not found");
+        if (j == pattern.length())
+            System.out.println("Pattern Match found");
+        else
+            System.out.println("Pattern Match not found");
     }
 }
 

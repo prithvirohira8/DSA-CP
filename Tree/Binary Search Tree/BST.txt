@@ -1,3 +1,10 @@
 A Binary Search Tree is a binary tree with the convention that 
 the left child is smaller than the parent and 
 the right child is greater than the parent.
+
+It is 'not' a perfect binary tree such that each node has to have 2 children.
+
+A binary search tree cannot have 2 nodes with the same values.
+The values on all nodes need to be distinct.
+
+IMP: The inorder traversal of the BST would print the values in a sorted order
