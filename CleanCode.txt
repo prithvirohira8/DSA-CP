@@ -1,0 +1,3 @@
+How to use List of Arrays instead of Lists of Lists and make things simpler
+
+How to sort Arrays and Lists with Comparator and wothout Comparator. (Including multi deimesional arrays and lists)

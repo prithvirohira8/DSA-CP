@@ -1,0 +1,16 @@
+Tree 
+- It is like a graoh with nodes and edges.
+- It does not have cycles.
+- There is only one possible path from 'Node A' to 'Node B'
+
+- The nodes of a tree can have duplicate values.
+- If you want you can implmenet, DFS, BFS in the same for way tree
+like that of graphs using a Stack & Queue
+
+Defination of Binary Tree:
+
+Defination of Balanced Binary Tree
+
+Defination of Perfectly balanced Binary Tree:
+
+Defination of binary Search Tree

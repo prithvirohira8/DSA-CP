@@ -1,0 +1,19 @@
+1. Understand how to use the Comparator interface for both minHeaps & maxHeaps.
+(Using Priority Queues)
+2. What does ammortized mean? Auxiliary space mean?
+3. Design a LinkedList & Doubly LinkedList by yourself
+4. .remove() does it removie values based on indexes or on the values.
+ Check for all data structures like list, map, set, linkedHashSet
+5. How to remove the first and last elements of the above data structures
+6. Add Syntax for Deque in Cheats.java file.
+
+
+MOST Important:
+8: Pass by value vs Pass by reference
+List, Arrays, Sets, Queues, Maps are all reference types, passing them in 
+functions and modifying values/ performing operations will lead to the changes seen globally
+
+int, String, char, double, float, long are all primitives, passing them in functions
+and modifying values/ performing operations will only change values locally.
+
+9: Sorting a Priority Queue based on Pair

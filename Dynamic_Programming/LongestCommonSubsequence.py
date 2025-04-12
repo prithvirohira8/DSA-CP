@@ -2,8 +2,9 @@
 
 # Approach: This is one of the most popular Dynamic Programming Questions
 # For finding the longest common subsequence we need to do character comparison in the string.
-# When we do character comparison in strings there can be 2 possibilities, if the character's are equal,
-# and the other being that the characters are not equal. If the character's are equal then we move on to compare the
+# When we do character comparison in strings there can be 2 possibilities, 
+# if the character's are equal, and the other being that the characters are not equal. 
+# If the character's are equal then we move on to compare the
 # next characters, i.e the characters ahead them, however if the character's were not equal we move on 
 # to generate to further possibilities for comparison, where we compare the next character of the string A to the same
 # character of string B or vice verca. This entire evaluation showcases that the problem can be solved recursively

@@ -26,32 +26,33 @@
 
 // the ans list consists of the topological sort order
 
-import java.util.* ;
-import java.io.*; 
-public class Solution 
-{
-    static ArrayList<Integer> solve(List<List<Integer>> adj, int[] indegree, Queue<Integer> q){
+import java.util.*;
+import java.io.*;
+
+public class Topological_Sorting_using_BFS {
+    static ArrayList<Integer> solve(List<List<Integer>> adj, int[] indegree, Queue<Integer> q) {
         ArrayList<Integer> lst = new ArrayList<>();
-        while(!q.isEmpty()){
+        while (!q.isEmpty()) {
             int element = q.poll();
             lst.add(element);
-            for(int i = 0; i < adj.get(element).size(); i++){
+            for (int i = 0; i < adj.get(element).size(); i++) {
                 int index = adj.get(element).get(i);
                 indegree[index]--;
-                if(indegree[index] == 0) q.add(index);
+                if (indegree[index] == 0)
+                    q.add(index);
             }
         }
         return lst;
     }
-    public static ArrayList<Integer> topologicalSort(ArrayList<ArrayList<Integer>> edges, int v, int e) 
-    {
+
+    public static ArrayList<Integer> topologicalSort(ArrayList<ArrayList<Integer>> edges, int v, int e) {
         // creating an adjacency list for the graph
         List<List<Integer>> adj = new ArrayList<>();
-        for(int i = 0; i < v; i++){
+        for (int i = 0; i < v; i++) {
             adj.add(new ArrayList<>());
         }
 
-        for(int i = 0; i < edges.size(); i++){
+        for (int i = 0; i < edges.size(); i++) {
             int v1 = edges.get(i).get(0);
             int v2 = edges.get(i).get(1);
             adj.get(v1).add(v2);
@@ -60,15 +61,16 @@ public class Solution
         int[] indegree = new int[v];
         Queue<Integer> q = new LinkedList<>();
 
-        for(int i = 0; i < adj.size(); i++){
-            for(int j = 0; j < adj.get(i).size(); j++){
+        for (int i = 0; i < adj.size(); i++) {
+            for (int j = 0; j < adj.get(i).size(); j++) {
                 int index = adj.get(i).get(j);
                 indegree[index]++;
             }
         }
 
-        for(int i = 0; i < indegree.length; i++){
-            if(indegree[i] == 0) q.add(i);
+        for (int i = 0; i < indegree.length; i++) {
+            if (indegree[i] == 0)
+                q.add(i);
         }
 
         ArrayList<Integer> lst = solve(adj, indegree, q);

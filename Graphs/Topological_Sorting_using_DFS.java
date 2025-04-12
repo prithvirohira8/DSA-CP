@@ -13,35 +13,30 @@
 // us we can use Stack. When we reach the last node and begin backtracking, we start
 // adding the nodes in the stack. So once when we pop() the nodes from the stack
 // the topological order will be maintained. 
-// Also the beauty of topologically sorting using DFS is that 
-// we do not need to start from the node with indegree 0. 
-// We iterate over all the elements in a for loop once and run DFS for
-// all the unvisited nodes. Incase we begin from a node which does not have indegree 0,
-// it's parent nodes will later be noted for in the for loop and be added on the top of
-// the stack still maintaining the perfect topological order.
 
-import java.util.* ;
-import java.io.*; 
-public class Solution 
-{
-    static Stack<Integer> solve(List<List<Integer>> adj, boolean[] vis, Stack<Integer> stk, int source){
+import java.util.*;
+import java.io.*;
+
+public class Topological_Sorting_using_DFS {
+    static Stack<Integer> solve(List<List<Integer>> adj, boolean[] vis, Stack<Integer> stk, int source) {
         vis[source] = true;
-        for(int i = 0; i < adj.get(source).size(); i++){
+        for (int i = 0; i < adj.get(source).size(); i++) {
             int child = adj.get(source).get(i);
-            if(!vis[child]) stk = solve(adj, vis, stk, child);
+            if (!vis[child])
+                stk = solve(adj, vis, stk, child);
         }
         stk.push(source);
         return stk;
     }
-    public static ArrayList<Integer> topologicalSort(ArrayList<ArrayList<Integer>> edges, int v, int e) 
-    {
+
+    public static ArrayList<Integer> topologicalSort(ArrayList<ArrayList<Integer>> edges, int v, int e) {
         // creating an adjacency list for the graph
         List<List<Integer>> adj = new ArrayList<>();
-        for(int i = 0; i < v; i++){
+        for (int i = 0; i < v; i++) {
             adj.add(new ArrayList<>());
         }
 
-        for(int i = 0; i < edges.size(); i++){
+        for (int i = 0; i < edges.size(); i++) {
             int v1 = edges.get(i).get(0);
             int v2 = edges.get(i).get(1);
             adj.get(v1).add(v2);
@@ -50,14 +45,14 @@ public class Solution
         boolean[] vis = new boolean[v];
         Stack<Integer> stk = new Stack();
 
-        for(int i = 0; i < v; i++){
-            if(!vis[i]){
+        for (int i = 0; i < v; i++) {
+            if (!vis[i]) {
                 stk = solve(adj, vis, stk, i);
             }
         }
-        
+
         ArrayList<Integer> lst = new ArrayList<>();
-        while(!stk.isEmpty()){
+        while (!stk.isEmpty()) {
             int element = stk.pop();
             lst.add(element);
         }

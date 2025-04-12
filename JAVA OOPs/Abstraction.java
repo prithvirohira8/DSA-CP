@@ -1,33 +1,51 @@
 // Abstraction
 // It is used to hide the complexity of the system and only showing the essential functionality or features to the user. 
 
-import java.util.*;
-import java.lang.*;
+abstract class Animal {
+    // Abstract method - must be implemented by subclasses
+    public abstract void makeSound();
 
-abstract class Car {
-    abstract void start();
-}
+    // Concrete method - inherited by subclasses
+    public void eat() {
+        System.out.println("Animal is eating.");
+    }
 
-class Audi extends Car {
-    @Override
-    void start() {
-        System.out.println("Audi has started");
+    // Another concrete method that can be overridden
+    public void sleep() {
+        System.out.println("Animal is sleeping.");
     }
 }
 
-class BMW extends Car {
+class Dog extends Animal {
     @Override
-    void start() {
-        System.out.println("BMW has started");
+    public void makeSound() {
+        System.out.println("Woof!");
+    }
+
+    @Override
+    public void sleep() {
+        System.out.println("Dog is snoring."); // Overriding the sleep method
+    }
+}
+
+class Cat extends Animal {
+    @Override
+    public void makeSound() {
+        System.out.println("Meow!");
     }
 }
 
 public class Abstraction {
     public static void main(String[] args) {
-        Car bmw = new BMW();
-        Car audi = new Audi();
-        bmw.start();
-        audi.start();
+        Dog myDog = new Dog();
+        myDog.makeSound(); // Calls the overridden abstract method
+        myDog.eat(); // Calls the inherited concrete method
+        myDog.sleep(); // Calls the overridden concrete method
+
+        Cat myCat = new Cat();
+        myCat.makeSound(); // Calls the overridden abstract method
+        myCat.eat(); // Calls the inherited concrete method
+        myCat.sleep(); // Calls the inherited concrete method
     }
 }
 

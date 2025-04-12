@@ -14,9 +14,10 @@
 // To understand how binary search can be used here the question needds to be analyzed differently.
 // If we need the median, we need to identify the no of elements from array a and the no of elements
 // from the left half of array b, that would be present in the left half of the combined array.
-// We know both the arrays a and b are sorted. So if we maintain 2 pointers in each array l1,r1 and l2, r2 such that
-// l1 and l2 represent the pointers till which the elements will be selected from array a and b to be added in
-// the left half of the combined array and r1 and r2 represent the pointers from which the remaining elements of array a and
+// We know both the arrays a and b are sorted. 
+// So if we maintain 2 pointers in each array l1,r1 and l2, r2 such that
+// l1 and l2 represent the pointers till which (including) the elements will be selected from array a and b to be added in
+// the left half of the combined array and r1 and r2 represent the pointers from which (including) the remaining elements of array a and
 // b would be added to the right half of the combined array.
 // Since the array's are sorted l1 <= r1 and l2 <= r2, however the above condition will prevail if l1 is also <= r2 and 
 // l2 is also <= r1.
@@ -27,7 +28,7 @@
 // The ans is binary search. We can try for each element of the array too that would give us O(n) time complexity.
 // However binary search allows us to reduce the search space.
 // So we apply binary search on the smaller array, the element to the left of mid is taken as l1, the mid is taken as r1
-// We calculate mid2 too by taking into consideration, the remaining elements that need to be added in the left halfo of the 
+// We calculate mid2 too by taking into consideration, the remaining elements that need to be added in the left half of the 
 // combined array. l2 and r2 are calculated using a similar way as l1 and r1. However m2 does not need to be calculated using binary search
 // and can be obtained directly.
 // We are basically finding m1 (mid1) using binary search and doing the comparisons.
@@ -42,7 +43,7 @@
 // Both l1, l2 and r1, r2 will not be MIN_VALUEs or MAX_VALUEs at a particular time, so the edge case gets handled too.
 
 // Note: In this solution h is taken as a.length, usually in binary search we were taking it as a.length - 1
-class Solution {
+public class Median_of_two_sorted_arrays {
     public double findMedianSortedArrays(int[] a, int[] b) {
         if (a.length > b.length)
             return findMedianSortedArrays(b, a);

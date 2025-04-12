@@ -13,8 +13,7 @@
 // The relaxation algorithm is performed for all the edges of the graph for n - 1 times where
 // n is the no of vertices. 
 // the intuition of n-1 times is formed because let us consider a single path graph and we start
-// the relaxatin algorithm in the reverse order.
-
+// the relaxation algorithm in the reverse order.
 
 // Relaxation Algorothm
 // for a edge directed from u -> v with a cost.
@@ -28,43 +27,45 @@
 
 // Disadvantage: Fails for negative weight cycles
 
-
 // Problem Link: https://practice.geeksforgeeks.org/problems/distance-from-the-source-bellman-ford-algorithm/1
 
 // Reference Video: https://www.youtube.com/watch?v=0vVofAhAYjc
 
-class Solution {
+import java.util.*;
+
+public class BellmanFord {
     static int[] bellman_ford(int V, ArrayList<ArrayList<Integer>> edges, int S) {
         int[] dist = new int[V];
         Arrays.fill(dist, (int) 1e8);
         dist[S] = 0;
-        
+
         boolean didChange = false;
-        for(int i = 0; i < V - 1; i++){
+        for (int i = 0; i < V - 1; i++) {
             didChange = false;
-            for(int j = 0; j < edges.size(); j++){
+            for (int j = 0; j < edges.size(); j++) {
                 int u = edges.get(j).get(0);
                 int v = edges.get(j).get(1);
                 int cost = edges.get(j).get(2);
-                if(dist[u] != (int) 1e8 && dist[v] > dist[u] + cost){
+                if (dist[u] != (int) 1e8 && dist[v] > dist[u] + cost) {
                     dist[v] = dist[u] + cost;
                     didChange = true;
                 }
             }
-            if(!didChange) return dist;
+            if (!didChange)
+                return dist;
         }
-        
+
         // checking for negative weight cycles
-        for(int i = 0; i < edges.size(); i++){
+        for (int i = 0; i < edges.size(); i++) {
             int u = edges.get(i).get(0);
             int v = edges.get(i).get(1);
             int cost = edges.get(i).get(2);
-            if(dist[u] != (int) 1e8 && dist[v] > dist[u] + cost){
-                int[] temp = {-1};
+            if (dist[u] != (int) 1e8 && dist[v] > dist[u] + cost) {
+                int[] temp = { -1 };
                 return temp;
             }
         }
-        
+
         return dist;
     }
 }

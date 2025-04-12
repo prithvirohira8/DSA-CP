@@ -9,7 +9,7 @@
 // We see that it is easier to sperate the cows for a smaller distance and more diffciult
 // to accomadate for a larger distance.
 // This can be seen as a monotonic function. Hence we can use binary search with the low being 1 and 
-// high being the largest value in N elements.@interface
+// high being the largest value in N elements.
 
 // Then for each value computed we just have to call a check function and see of the cows could be accomadated.
 

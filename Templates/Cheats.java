@@ -53,8 +53,12 @@ class Main {
 // int MOD = (int)(1e9 + 7);
 
 // Convert char to int
-// int n = Character.getNumericValue(i);
+// int n = Character.getNumericValue(i); 'a' = 10, '0' = 0, '1' = 1
 // int n = 'a' gives ASCII value
+
+// Best way to convert 'a' -> 0, 'b' -> 1..
+// char c = 'a';
+// int n = c - 'a' (n = 0 for c = 'a', n = 1 for c = 'b')
 
 // Convert int (ASCII Value) to char
 // int i = 65;
@@ -358,3 +362,23 @@ class Main {
 // 2 3
 // 3 7
 // 4
+
+// The cost of lst.set() & lst.get() for an ArrayList is O(1) because it is
+// backed by an array.
+
+// Creating an Array of Lists// Declare an array that will hold
+// ArrayList<String> objects
+// ArrayList<String>[] arrayOfArrayLists = new ArrayList[5];
+
+// // Initialize each element of the array with a new ArrayList
+// for (int i = 0; i < arrayOfArrayLists.length; i++) {
+// arrayOfArrayLists[i] = new ArrayList<>();
+// }
+
+// // Now you can add elements to the individual ArrayLists within the array
+// arrayOfArrayLists[0].add("Dog");
+// arrayOfArrayLists[0].add("Cat");
+
+// arrayOfArrayLists[1].add("Java");
+// arrayOfArrayLists[1].add("Python");
+// arrayOfArrayLists[1].add("C++");

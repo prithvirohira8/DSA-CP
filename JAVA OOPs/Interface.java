@@ -39,6 +39,11 @@ public class Interface {
 
 // Interfaces support multiple inheritance
 // All methods in an interfce are by default abstract
+// and the class variables declared in a class are by default "public static
+// final". This is not the same for abstract classes.
+// When an interface is inherited,
+// it is compulsory to provide implementation for all its methods. This too is
+// not same for abstract classes.
 
 // import java.util.*;
 // interface Bank{

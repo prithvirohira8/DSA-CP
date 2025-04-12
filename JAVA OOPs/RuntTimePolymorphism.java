@@ -26,3 +26,5 @@ class Main extends Bike {
 // Upcasting can only occur when inheritance is involved. If there is no
 // inheritance relationship between the classes, upcasting is not possible, even
 // if all the classes are public.
+
+// This is also an example if Method Overriding

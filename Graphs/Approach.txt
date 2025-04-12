@@ -1,6 +1,98 @@
-In graph questions always make sure the for 'n' nodes/ vertices,
+- In graph questions always make sure the for 'n' nodes/ vertices,
 in a question the nodes/ vertices should be of the form 0 to n-1.
-If they are not then they should be transformed and brought to this form.
-There should be a adjacency list/matric denoting the cost of the edges.
+
+- If they are not then they should be transformed and brought to this form.
+There should be a adjacency list/matrix denoting the cost of the edges.
 In the case of weighted graphs the costs can be anything, cost of 0 indicates that
 there is no connection between those 2 vertices
+
+- A graph can contain cycles, there is no property that doesn't allow it
+- A tree doesn't contain cycles
+
+Traversals of a graph
+
+Goal: traverse Every node
+
+1.) If graph is undirected:
+a) If we traverse using BFS, we need to maintain a visited array along with Queue
+to avoid iterating over the same nodes again
+
+b) If we traverse using DFS, we need to maintain a visited array along with Stack
+to avoid iterating over the same nodes again.
+
+2.) If graph is directed:
+a) If we traverse using BFS, we need to maintain a visited array along with Queue
+to avoid iterating over the same nodes again. Note: Same node will only be encountered again, 
+if the graph contains cycles
+
+b) If we traverse using DFS, we need to maintain a visited array along with Stack
+to avoid iterating over the same nodes again. Note: Same node will only be encountered again, 
+if the graph contains cycles
+
+Goal: Detect cycles in the graph
+
+1.) If the graph is undirected
+a) We can use the normal BFS Approach, however store a Pair(node_val, parent_val) in the Queue,
+while implementing B.F.S. Additionally if a node is visited, but is the parent then no cycle else if visited and
+not parent, it indicates a cycle.
+
+b) Use DFS with stack and maintain a visited array, however store a Pair(node_val, parent_val) in the Stack,
+while implementing D.F.S. Additionally if a node is visited, but is the parent then no cycle else if visited and
+not parent, it indicates a cycle.
+
+2.) If graph is directed.
+a) Use Kahns Algorithm, if the topological order returned is not till 'n', it means a cycle is present.
+
+b) We can use recursive DFS with a visited array, mark the node visited before visiting
+the child nodes, mark the node false when backtacked from the child nodes 
+and returning to the parent nodes.
+If visited node encountered again, cycle has been detected.
+
+Goal: Topoligical Sort
+
+Note: Topological Sorting is only for directed graphs, doesn't make sense to use it with
+undirected graphs.
+
+a) Kahns Algorithm (Using B.F.S)
+Fist calculate the indegree of all nodes.
+Add all the nodes with indegree 0 in a prority queue.
+Iterate while pq is Empty()
+For evey, pop add the node to res, 
+Run a loop for the neighbouring nodes and decrease their indegree by 1
+If the indegree reached 0, add them in the pq
+Follow this process until pq is empty()
+
+b) Using DFS, we just need to maintain a stack that maintins the topological sort order and a visited array 
+to not visite the nodes again. Add elements in the stack while backtracking, in this way the elements on the last level are added first.
+And as we backtrack tp the top the elements get added, maintainin the topological sort order.
+
+Dijkstras Algorithm 
+- Creates the shortest path from the source node to all the other nodes.
+- Does not work for negative edges.
+
+Intuition of Dijkstras:
+The entire algorithm is based on the concept that the shortest path node from the source
+has to be processed first.
+Why? because when the shortest path node is processed, 
+the nodes joined to the 'shortest path' nodes (its neightbours) can be relaxed.
+What is relacation.
+Let consider dist[i] to be an array consisting of the dist from the sorce node to node i
+Lets's consider the shortest path node to be 'x', graph[node][i] = cost of dist from node to 'i'.
+if dist[i] < dist[node] + graph[node][i].
+Then the path from the 'node' will be considered.
+Relaxation can only be done when the shortest path nodes from the src are processed first.
+
+Since we want to process the shortest path nodes first, we will use a PrQ for ordering of elements.
+
+Steps.
+1.) Set dist[] to infinite for all nodes.
+2.) Add source in pq. (pq sorts on the bases of min edge cost from src)
+3.) Iterate untill pq is empty.
+4.) Poll a node in each iteration, check for relaxation of that nodes neightbours in a nested loop.
+5.) If relaxation is possible update dist[], add relaxed node into pq.
+
+Bellman Ford Algorithm
+
+Floyd Warshall Algorithm
+
+MST

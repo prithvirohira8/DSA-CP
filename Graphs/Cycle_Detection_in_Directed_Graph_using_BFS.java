@@ -24,48 +24,53 @@
 
 import java.util.*;
 import java.util.ArrayList;
-public class Solution {
-  static List<Integer> topologicalSort(List<List<Integer>> adj, int[] indegree){
+
+public class Cycle_Detection_in_Directed_Graph_using_BFS {
+  static List<Integer> topologicalSort(List<List<Integer>> adj, int[] indegree) {
     List<Integer> lst = new ArrayList<>();
     Queue<Integer> q = new LinkedList<>();
 
-    for(int i = 1; i < indegree.length; i++){
-      if(indegree[i] == 0) q.add(i);
+    for (int i = 1; i < indegree.length; i++) {
+      if (indegree[i] == 0)
+        q.add(i);
     }
 
-    while(!q.isEmpty()){
+    while (!q.isEmpty()) {
       int vertex = q.poll();
       lst.add(vertex);
-      for(int i = 0; i < adj.get(vertex).size(); i++){
+      for (int i = 0; i < adj.get(vertex).size(); i++) {
         int child = adj.get(vertex).get(i);
         indegree[child]--;
-        if(indegree[child] == 0) q.add(child);
+        if (indegree[child] == 0)
+          q.add(child);
       }
-      
+
     }
 
     return lst;
   }
-  public static boolean detectCycleInDirectedGraph(int n, ArrayList < ArrayList < Integer >> edges) {
+
+  public static boolean detectCycleInDirectedGraph(int n, ArrayList<ArrayList<Integer>> edges) {
     // Creating an adjaceny list
     List<List<Integer>> adj = new ArrayList<>();
-    for(int i = 0; i <= n; i++){
+    for (int i = 0; i <= n; i++) {
       adj.add(new ArrayList<>());
     }
 
-    int[] indegree = new int[n+1];
-    for(int i = 0; i < edges.size(); i++){
+    int[] indegree = new int[n + 1];
+    for (int i = 0; i < edges.size(); i++) {
       // Direction v1 -> v2
       int v1 = edges.get(i).get(0);
       int v2 = edges.get(i).get(1);
       adj.get(v1).add(v2);
       indegree[v2]++;
     }
-    
+
     List<Integer> lst = topologicalSort(adj, indegree);
 
     // System.out.println(lst+" "+n);
-    if(lst.size() != n) return true;
+    if (lst.size() != n)
+      return true;
     return false;
   }
 }

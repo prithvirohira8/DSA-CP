@@ -1,0 +1,30 @@
+Most sums that only involve recursion are based on the "take it or leave it" approach.
+While this is directly used to create a subset, it becomes a little tricky when subset
+creation without duplicates needs to be followed.
+
+Only difference in the case of handling duplicates:
+In that case the typical way of approach is a for loop starting from the ind to the last element.
+If for a paricular value of 'i', nums[i] == nums[i - 1], then we just continue (not in the case of ind)
+Additionally, the recursion for the next index only follows if the above condition isn't satisfied.
+
+Ex:
+nums = [1, 2, 2, 3]
+
+func(nums, ind, lst):
+res.add(lst)
+for i in range(ind, len(nums)):
+    if(i != ind and nums[i] == nums[i - 1]) continue;
+    
+    lst.add(nums[i])
+    func(nums, i + 1, lst)
+    lst.remove(lst.size() - 1)
+
+So while the first 2 at ind: 1 will make a subset with num: 3, the second 2 will not go inside the recursive function 
+and hence wont make the duplicate subset with 3.
+
+IMPORTANT
+Additionally, for every subset that gets generated:
+Let's say: [1, 2, 2]
+Only 1 element gets added in each recursive call. Which means [1, 2, 2] was
+generated using 3 recursive calls.
+No subset is generated entirely by the for loop.
